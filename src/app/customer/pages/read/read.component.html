@@ -1,0 +1,61 @@
+
+
+<div class="animate__animated animate__fadeIn animate__faster">
+    <h2>CATÁLOGO DE CLIENTES</h2>
+    <hr>
+    <app-customer-input></app-customer-input>
+    <div class="row">
+        <div class="col">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Nombre Completo</th>
+                        <th>Teléfono</th>
+                        <th>Municipio</th>
+                        <th>Código Postal</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+            
+                    <tr *ngFor="let cliente of customers.clientes" >
+                        <td>{{cliente.nombre}} {{cliente.apellidoP}} {{cliente.apellidoM}}</td>
+                        <td>{{cliente.telefono}}</td>
+                        <td>{{cliente.fkEstado}}</td>
+                        <td>{{cliente.codigoPostal}}</td>
+                        <td>
+                            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                                <button class="btn btn-link me-md-1"
+                                    [routerLink]="['/update/', cliente.id]">
+                                    <i class="fa-solid fa-eye"></i>
+                            </button>
+                            </div>
+                        </td>
+                    </tr>
+            
+                </tbody>
+            </table>
+            
+        </div>
+    </div>
+</div>
+
+<hr>
+
+
+<div class="d-grid gap-2 d-md-flex justify-content-md-end">
+    <button class="btn btn-primary" (click)="addCostumer()">
+        <i class="fa-solid fa-user-plus"></i> Agregar
+    </button>
+    </div>
+<!--<div    *ngIf="hayError"
+        class="alert alert-danger">
+    No se encontró nada con el término {{termino}}
+</div>
+<div    *ngIf="customers.length > 0"
+        class="row">
+    <div class="col">
+        <app-customer-table></app-customer-table>
+    </div>
+</div>-->
+

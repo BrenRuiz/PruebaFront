@@ -1,0 +1,155 @@
+<div class="animate__animated animate__fadeIn animate__faster">
+    <h2>FORMULARIO</h2>
+    <hr>
+<div class="container">
+    <form>
+        <div class="my-3">
+            Nombre(s): <input type="text" class="form-control" name="nombre" placeholder="Juana" [(ngModel)]="customer.nombre" required>
+            <span *ngIf="this.formAdd.get('nombre')?.errors?.['required']">(El nombre no puede quedar vacío)</span>
+            <span *ngIf="this.formAdd.get('nombre')?.errors?.['minlength']">(Debe tener como mínimo 3 caracteres)</span>
+            <span *ngIf="this.formAdd.get('nombre')?.errors?.['maxlength']">(Debe tener como máximo 36 caracteres)</span>
+        </div>
+
+        <div class="my-3">
+                Apellido Paterno: <input type="text" name="apellidoP" class="form-control" placeholder="Hernández" [(ngModel)]="customer.apellidoP" required>
+                <span *ngIf="this.formAdd.get('apellidoP')?.errors?.['required']">(El apellido paterno no puede quedar vacío)</span>
+                <span *ngIf="this.formAdd.get('apellidoP')?.errors?.['minlength']">(Debe tener como mínimo 4 caracteres)</span>
+                <span *ngIf="this.formAdd.get('apellidoP')?.errors?.['maxlength']">(Debe tener como máximo 36 caracteres)</span>
+            </div>
+            <div class="my-3">
+                Apellido Materno: <input type="text" name="apellidoM" class="form-control" placeholder="Lázaro" [(ngModel)]="customer.apellidoM" required>
+                <span *ngIf="this.formAdd.get('apellidoM')?.errors?.['required']">(El apellido materno no puede quedar vacío)</span>
+                <span *ngIf="this.formAdd.get('apellidoM')?.errors?.['minlength']">(Debe tener como mínimo 4 caracteres)</span>
+                <span *ngIf="this.formAdd.get('apellidoM')?.errors?.['maxlength']">(Debe tener como máximo 36 caracteres)</span>
+            </div>
+
+        <div class="my-3">
+            Teléfono: <input type="text" name="telefono" class="form-control" placeholder="Ej. 4776800118" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" [(ngModel)]="customer.telefono" required>
+            <span *ngIf="this.formAdd.get('telefono')?.errors?.['required']">(El teléfono no puede quedar vacío)</span>
+            <span *ngIf="this.formAdd.get('telefono')?.errors?.['minlength']">(Debe tener como mínimo 10 caracteres)</span>
+            <span *ngIf="this.formAdd.get('telefono')?.errors?.['maxlength']">(Debe tener como máximo 10 caracteres)</span>
+        </div>
+
+        <div class="my-3">
+                Puesto: <input type="text" name="puesto" class="form-control" placeholder="Gerente" [(ngModel)]="customer.puesto" required>
+                <span *ngIf="this.formAdd.get('puesto')?.errors?.['required']">(El puesto no puede quedar vacío)</span>
+                <span *ngIf="this.formAdd.get('puesto')?.errors?.['minlength']">(Debe tener como mínimo 4 caracteres)</span>
+                <span *ngIf="this.formAdd.get('puesto')?.errors?.['maxlength']">(Debe tener como máximo 36 caracteres)</span>
+            </div>
+            <div class="my-3">
+                Sucursal: <input type="text" name="sucursal" class="form-control" placeholder="Sucursal Norte" [(ngModel)]="customer.sucursal" required>
+                <span *ngIf="this.formAdd.get('sucursal')?.errors?.['required']">(La sucursal no puede quedar vacía)</span>
+                <span *ngIf="this.formAdd.get('sucursal')?.errors?.['minlength']">(Debe tener como mínimo 4 caracteres)</span>
+                <span *ngIf="this.formAdd.get('sucursal')?.errors?.['maxlength']">(Debe tener como máximo 36 caracteres)</span>
+            </div>
+
+        <div class="my-3">
+                RFC: <input type="text" name="rfc" class="form-control" placeholder="RFC" [(ngModel)]="customer.rfc" required>
+                <span *ngIf="this.formAdd.get('rfc')?.errors?.['required']">(El RFC no puede quedar vacío)</span>
+                <span *ngIf="this.formAdd.get('rfc')?.errors?.['minlength']">(Debe tener como mínimo 13 caracteres)</span>
+                <span *ngIf="this.formAdd.get('rfc')?.errors?.['maxlength']">(Debe tener como máximo 13 caracteres)</span>
+            </div>
+            <div class="my-3">
+                Nombre Fisical: <input type="text" name="nombreFiscal" class="form-control" placeholder="ITSmartS" [(ngModel)]="customer.nombreFiscal" required>
+                <span *ngIf="this.formAdd.get('nombreFiscal')?.errors?.['required']">(El nombre fiscal no puede quedar vacío)</span>
+                <span *ngIf="this.formAdd.get('nombreFiscal')?.errors?.['minlength']">(Debe tener como mínimo 2 caracteres)</span>
+                <span *ngIf="this.formAdd.get('nombreFiscal')?.errors?.['maxlength']">(Debe tener como máximo 36 caracteres)</span>
+        </div>
+
+        <div class="my-3">
+                Latitud: <input type="text" name="latitud" class="form-control" placeholder="Ej. 12.245" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" [(ngModel)]="customer.latitud" required>
+                <span *ngIf="this.formAdd.get('latitud')?.errors?.['required']">(La latitud no puede quedar vacío)</span>
+            </div>
+            <div class="my-3">
+                Longitud: <input type="text" name="longitud" class="form-control" placeholder="Ej. -342.1" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" [(ngModel)]="customer.longitud" required>
+                <span *ngIf="this.formAdd.get('longitud')?.errors?.['required']">(La longitud no puede quedar vacío)</span>
+        </div>
+
+        <div>
+            <label>Estado: </label>
+            <select name="fkEstado" *ngFor="let estado of estados" [(ngModel)]="customer.fkEstado" required>
+                <option [value]="estado.id">{{estado.nombreEstado}}</option>-->
+                <!--<option value="2">BAJA CALIFORNIA</option>
+                <option value="3">BAJA CALIFORNIA SUR</option>
+                <option value="4">CHIHUAHUA</option>
+                <option value="5">CHIAPAS</option>
+                <option value="6">CAMPECHE</option>
+                <option value="7">CIUDAD DE MÉXICO</option>
+                <option value="8">COAHUILA</option>
+                <option value="9">COLIMA</option>
+                <option value="10">DURANGO</option>
+                <option value="11">GUERRERO</option>
+                <option value="12">GUANAJUATO</option>
+                <option value="13">HIDALGO</option>
+                <option value="14">JALISCO</option>
+                <option value="15">MICHOACAN</option>
+                <option value="16">ESTADO DE MÉXICO</option>
+                <option value="17">MORELOS</option>
+                <option value="18">NAYARIT</option>
+                <option value="19">NUEVO LEÓN</option>
+                <option value="20">OAXACA</option>
+                <option value="21">PUEBLA</option>
+                <option value="22">QUINTANA ROO</option>
+                <option value="23">QUERETARO</option>
+                <option value="24">SINALOA</option>
+                <option value="25">SAN LUIS POTOSÍ</option>
+                <option value="26">SONORA</option>
+                <option value="27">TABASCO</option>
+                <option value="28">TLAXCALA</option>
+                <option value="29">TAMAULIPAS</option>
+                <option value="30">VERACRUZ</option>
+                <option value="31">YUCATAN</option>
+                <option value="32">ZACATECAS</option>-->
+            </select>
+        </div><br>
+        
+        <div>
+            <label>Municipio: </label>
+            <select name="fkMunicipio" [(ngModel)]="customer.fkMunicipio" required>
+                <option value="1">AGUASCALIENTES</option>
+                <option value="2">ASIENTOS</option>
+                <option value="3">CALVILLO</option>
+                <option value="4">COSIO</option>
+                <option value="5">EL LLANO</option>
+                <option value="6">JESUS MARIA</option>
+                <option value="7">PABELLÓN DE ARTEAGA</option>
+                <option value="8">RINCON DE ROMOS</option>
+                <option value="9">SAN FRANCISCO DE LOS ROMO</option>
+                <option value="10">SAN JOSE DE GRACIA</option>
+                <option value="11">TEPEZALA</option>
+            </select>
+        </div><br>
+
+        <div class="my-3">
+            Código Postal: <input type="text" name="codigoPostal" class="form-control" placeholder="Ej. 37000" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" [(ngModel)]="customer.codigoPostal" required>
+            <span *ngIf="this.formAdd.get('codigoPostal')?.errors?.['required']">(El código postal no puede quedar vacío)</span>
+            <span *ngIf="this.formAdd.get('codigoPostal')?.errors?.['minlength']">(Debe tener como mínimo 5 caracteres)</span>
+            <span *ngIf="this.formAdd.get('codigoPostal')?.errors?.['maxlength']">(Debe tener como máximo 5 caracteres)</span>
+        </div>
+        
+        <div class="my-3">
+                Colonia: <input type="text" name="colonia" class="form-control" placeholder="Nombre" [(ngModel)]="customer.colonia" required>
+                <span *ngIf="this.formAdd.get('colonia')?.errors?.['required']">(La colonia no puede quedar vacía)</span>
+                <span *ngIf="this.formAdd.get('colonia')?.errors?.['minlength']">(Debe tener como mínimo 2 caracteres)</span>
+                <span *ngIf="this.formAdd.get('colonia')?.errors?.['maxlength']">(Debe tener como máximo 36 caracteres)</span>
+            </div>
+            <div class="my-3">
+                Referencia: <input type="text" name="referencia" class="form-control" placeholder="Nombre" [(ngModel)]="customer.referencia" required>
+                <span *ngIf="this.formAdd.get('referencia')?.errors?.['required']">(La referencia no puede quedar vacía)</span>
+                <span *ngIf="this.formAdd.get('referencia')?.errors?.['minlength']">(Debe tener como mínimo 2 caracteres)</span>
+                <span *ngIf="this.formAdd.get('referencia')?.errors?.['maxlength']">(Debe tener como máximo 36 caracteres)</span>
+        </div>
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+            <button type="button" class="btn btn-outline-secondary" (click)="salir()">Cancelar</button>
+            <button type="submit" class="btn btn-primary" (click)="save()">
+                <i class="fa-solid fa-floppy-disk"></i>
+            </button>
+            <button *ngIf="customer.id" class="btn btn-danger" (click)="deleteCustomer()">
+                <i class="fa-solid fa-trash"></i>
+            </button>
+        </div>
+    </form>
+
+    <!--<div>{{resultado}}</div>-->
+</div>
+</div>
